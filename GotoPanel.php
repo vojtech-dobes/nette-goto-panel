@@ -18,6 +18,9 @@ class GotoPanel extends UI\Form implements IBarPanel
 {
 
 	/** @var string|NULL */
+	private $showLabel;
+
+	/** @var string|NULL */
 	private $showDestination;
 
 	/** @var string|NULL */
@@ -49,7 +52,14 @@ class GotoPanel extends UI\Form implements IBarPanel
 	public function processRedirect()
 	{
 		$destination = $this->prepareArguments($this->values->destination);
-		call_user_func_array(callback($this->presenter, 'redirect'), $destination);
+		try {
+			call_user_func_array(callback($this->presenter, 'redirect'), $destination);
+		} catch (UI\InvalidLinkException $e) {
+			$this->showLink = TRUE;
+			$this->showLabel = 'Redirect';
+			$this->showDestination = $this->values->destination;
+			$this->showError = $e->getMessage();
+		}
 	}
 
 
@@ -58,6 +68,7 @@ class GotoPanel extends UI\Form implements IBarPanel
 	{
 		$this->showDestination = $this->values->destination;
 		$destination = $this->prepareArguments($this->values->destination);
+		$this->showLabel = 'Link';
 		$originalLinkMode = $this->presenter->invalidLinkMode;
 		try {
 			$this->presenter->invalidLinkMode = UI\Presenter::INVALID_LINK_EXCEPTION;
@@ -92,7 +103,7 @@ class GotoPanel extends UI\Form implements IBarPanel
 		ob_start();
 		echo '<h1>Goto</h1><div class="nette-inner">';
 		if (isset($this->showLink) && isset($this->showDestination)) {
-			echo '<table><tr><th>Link&nbsp;&rArr;&nbsp;' . (isset($this->showError) ? '<span style="color:#CD1818">' : '') . $this->showDestination . (isset($this->showError) ? '</span>' : '');
+			echo '<table><tr><th>' . $this->showLabel .'&nbsp;&rArr;&nbsp;' . (isset($this->showError) ? '<span style="color:#CD1818">' : '') . $this->showDestination . (isset($this->showError) ? '</span>' : '');
 			if (isset($this->showError)) {
 				echo '<tr><td style="background-color:#CD1818;color:white">' . $this->showError;
 			} else {
