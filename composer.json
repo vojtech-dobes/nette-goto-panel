@@ -1,7 +1,7 @@
 {
     "name": "Clevisaci/GotoPanel",
     "description": "Provides interface to go to any destination within Nette Framework application.",
-    "keywords": ["nette","debug","panel"],
+    "keywords": ["nette", "debugging", "panel"],
     "homepage": "http://github.com/Clevisaci/GotoPanel",
     "license": "New BSD",
     "authors": [
@@ -11,9 +11,10 @@
         }
     ],
     "require": {
-        "nette": ">=v2.0.2"
+        "php": ">=5.3.2",
+        "nette/nette": "2.0.*"
     },
     "autoload": {
-        "classmap": ["GotoPanel.php"]
+        "classmap": ["/"]
     }
 }
