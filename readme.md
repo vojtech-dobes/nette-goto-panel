@@ -4,7 +4,9 @@ Provides interface to go to any destination within app.
 
 ## Installation
 
-1. Move `GotoPanel.php` to your libs directory.
+1. Get the source code:
+	* Move `GotoPanel.php` to your libs directory.
+	* Add `"Clevisaci/GotoPanel": "*"` to your `composer.json`.
 2. Register `GotoPanel` as component (e.g. in `BasePresenter`).
 
 ```php
