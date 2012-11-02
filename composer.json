@@ -1,8 +1,8 @@
 {
-    "name": "Clevisaci/GotoPanel",
+    "name": "vojtech-dobes/nette-goto-panel",
     "description": "Provides interface to go to any destination within Nette Framework application.",
     "keywords": ["nette", "debugging", "panel"],
-    "homepage": "http://github.com/Clevisaci/GotoPanel",
+    "homepage": "http://github.com/vojtech-dobes/nette-goto-panel",
     "license": "New BSD",
     "authors": [
         {
