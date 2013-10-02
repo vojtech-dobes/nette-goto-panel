@@ -6,7 +6,7 @@ Provides interface to go to any destination within app.
 
 1. Get the source code:
 	* Move `GotoPanel.php` to your libs directory.
-	* Add `"Clevisaci/GotoPanel": "*"` to your `composer.json`.
+	* Add `"VojtechDobes/GotoPanel": "*"` to your `composer.json`.
 2. Register `GotoPanel` as component (e.g. in `BasePresenter`).
 3. Force initialization in `startup()`.
 
@@ -19,7 +19,7 @@ protected function startup()
 
 protected function createComponentGotoPanel()
 {
-	return new GotoPanel;
+	return new VojtechDobes\GotoPanel;
 }
 ```
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Clevispace\Diagnostics;
+namespace VojtechDobes;
 
 use Nette\Application\UI;
 use Nette\Diagnostics\Debugger;
@@ -11,7 +11,6 @@ use Nette\Diagnostics\IBarPanel;
  * Provides interface to go to any destination within app
  *
  * @author    Vojtěch Dobeš
- * @copyright Clevis 2012
  * @license   New BSD License
  */
 class GotoPanel extends UI\Form implements IBarPanel
